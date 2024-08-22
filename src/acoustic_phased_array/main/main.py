@@ -11,32 +11,31 @@ class Main:
         self.root = root_element
         self.root.title("Acoustic Array Simulator")
 
-        # Microphone positions user input
+        # microphone input
         tk.Label(root_element, text="Microphone Positions (x1,y1 x2,y2 ...):").grid(row=0, column=0, padx=10, pady=5, sticky="e")
         self.mic_positions_entry = tk.Entry(root_element, width=50)
         self.mic_positions_entry.grid(row=0, column=1, padx=10, pady=5)
 
-        # Frequency user input
+        # frequency input
         tk.Label(root_element, text="Frequency (Hz):").grid(row=1, column=0, padx=10, pady=5, sticky="e")
         self.frequency_entry = tk.Entry(root_element)
         self.frequency_entry.grid(row=1, column=1, padx=10, pady=5)
 
-        # Look direction input
+        # initial direction input
         tk.Label(root_element, text="Look Direction (degrees):").grid(row=2, column=0, padx=10, pady=5, sticky="e")
         self.initial_looking_direction_entry = tk.Entry(root_element)
         self.initial_looking_direction_entry.grid(row=2, column=1, padx=10, pady=5)
 
-        # Angle resolution input
+        # angle resolution input
         tk.Label(root_element, text="Angle Resolution (degrees):").grid(row=3, column=0, padx=10, pady=5, sticky="e")
         self.angle_resolution_entry = tk.Entry(root_element)
         self.angle_resolution_entry.grid(row=3, column=1, padx=10, pady=5)
 
-        # Start Simulation button
+        # Start button
         self.start_button = tk.Button(root_element, text="Start Simulation", command=self.start_simulation)
         self.start_button.grid(row=4, columnspan=2, pady=20)
 
     def start_simulation(self):
-        # Get input values
         mic_positions_str = self.mic_positions_entry.get()
         frequency_str = self.frequency_entry.get()
         initial_looking_direction_str = self.initial_looking_direction_entry.get()
@@ -70,7 +69,6 @@ class Main:
 
             simulator = Simulator(acoustic_array)
             simulator.plot_radiation_pattern(radiation_pattern)
-
 
         except ValueError as e:
             messagebox.showerror("Input Error", str(e))

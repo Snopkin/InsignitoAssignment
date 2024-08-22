@@ -5,6 +5,10 @@ class Simulator:
         self.acoustic_array = acoustic_array
 
 
+    '''
+    main plotting logic. 
+    plots the radiation pattern as a polar plot, showing the directional gain of the acoustic array.
+    '''
     def plot_radiation_pattern(self, radiation_pattern):
         theta = np.radians(list(radiation_pattern.keys()))
         r = list(radiation_pattern.values())

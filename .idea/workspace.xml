@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07a0ba76-8dda-497e-afab-6658a3058ce7" name="Changes" comment="added GUI and test module (TBD), removed commented out code">
-      <change afterPath="$PROJECT_DIR$/src/acoustic_phased_array/test/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/acoustic_phased_array/test/test_microphone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/acoustic_phased_array/acoustic_phased_array.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/acoustic_phased_array/main/acoustic_phased_array.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/acoustic_phased_array/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/acoustic_phased_array/main/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/acoustic_phased_array/microphone.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/acoustic_phased_array/main/microphone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/acoustic_phased_array/simulator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/acoustic_phased_array/main/simulator.py" afterDir="false" />
+    <list default="true" id="07a0ba76-8dda-497e-afab-6658a3058ce7" name="Changes" comment="added tests and refactored&#10;removed unneccessary function">
+      <change beforePath="$PROJECT_DIR$/src/acoustic_phased_array/main/acoustic_phased_array.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/acoustic_phased_array/main/acoustic_phased_array.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/acoustic_phased_array/main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/acoustic_phased_array/main/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/acoustic_phased_array/test/test_simulator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/acoustic_phased_array/test/test_simulator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +35,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python tests.Python tests for test_acoustic_array.TestAcousticArray.executor": "Run",
     "Python tests.Python tests for test_microphone.TestMicrophone.test_calculate_phase_shift.executor": "Run",
+    "Python tests.Python tests in test.executor": "Run",
     "Python.main (1).executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -58,7 +56,7 @@
       <recent name="$PROJECT_DIR$/src/main" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests in test">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="HomeAssignment" />
       <option name="ENV_FILES" value="" />
@@ -150,10 +148,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python tests.Python tests in test" />
         <item itemvalue="Python tests.Python tests for test_acoustic_array.TestAcousticArray" />
         <item itemvalue="Python tests.Python tests for test_microphone.TestMicrophone.test_calculate_phase_shift" />
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.main (1)" />
       </list>
     </recent_temporary>
@@ -206,7 +204,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724324458483</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added tests and refactored&#10;removed unneccessary function">
+      <option name="closed" value="true" />
+      <created>1724324946050</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1724324946050</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,6 +231,7 @@
     <MESSAGE value="poc, working model with no gui and const input" />
     <MESSAGE value="added GUI and test module (TBD)" />
     <MESSAGE value="added GUI and test module (TBD), removed commented out code" />
-    <option name="LAST_COMMIT_MESSAGE" value="added GUI and test module (TBD), removed commented out code" />
+    <MESSAGE value="added tests and refactored&#10;removed unneccessary function" />
+    <option name="LAST_COMMIT_MESSAGE" value="added tests and refactored&#10;removed unneccessary function" />
   </component>
 </project>

@@ -13,6 +13,9 @@ class AcousticArray:
         self.initial_looking_direction_rad = math.radians(initial_looking_direction)
         self.initial_phase_shifts = self._calculate_initial_phase_shifts()
 
+    '''
+    computes initial phase shifts for each microphone to align the array with the specified look direction.
+    '''
     def _calculate_initial_phase_shifts(self):
         phase_shifts = [
             mic.calculate_phase_shift(self.initial_looking_direction_rad, self.sound_speed, self.frequency)
@@ -20,6 +23,10 @@ class AcousticArray:
         ]
         return phase_shifts
 
+    '''
+    calculates the signal strength for a specified azimuth by summing and squaring phase-aligned signals from all microphones.
+    '''
+    #TODO: maybe should be gain? (signal ** 2)
     def calculate_gain(self, azimuth):
         azimuth_rad = math.radians(azimuth)
         total_signal = 0
@@ -38,14 +45,3 @@ class AcousticArray:
             for azimuth in azimuths
         }
         return radiation_pattern
-
-    def plot_radiation_pattern(self, radiation_pattern):
-        theta = np.radians(list(radiation_pattern.keys()))
-        r = list(radiation_pattern.values())
-
-        plt.figure(figsize=(8, 8))
-        ax = plt.subplot(111, polar=True)
-        ax.plot(theta, r)
-        ax.set_theta_zero_location('N')
-        ax.set_theta_direction(-1)
-        plt.show()

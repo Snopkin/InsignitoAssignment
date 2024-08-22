@@ -7,7 +7,6 @@ from src.acoustic_phased_array.main.simulator import Simulator
 
 class TestSimulator(unittest.TestCase):
     def test_plot_radiation_pattern(self):
-        # Since the plot function opens a window, we'll just ensure it doesn't throw an error
         microphones = [Microphone(0, 0), Microphone(0.1, 0)]
         acoustic_array = AcousticArray(microphones, 1000, 90, 1)
         radiation_pattern = acoustic_array.calculate_radiation_pattern()
