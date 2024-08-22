@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07a0ba76-8dda-497e-afab-6658a3058ce7" name="Changes" comment="README.md update" />
+    <list default="true" id="07a0ba76-8dda-497e-afab-6658a3058ce7" name="Changes" comment="added requirements file">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -224,7 +226,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724325439714</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added requirements file">
+      <option name="closed" value="true" />
+      <created>1724325614132</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1724325614132</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -246,6 +256,7 @@
     <MESSAGE value="added tests and refactored&#10;removed unneccessary function" />
     <MESSAGE value="prettify and doc" />
     <MESSAGE value="README.md update" />
-    <option name="LAST_COMMIT_MESSAGE" value="README.md update" />
+    <MESSAGE value="added requirements file" />
+    <option name="LAST_COMMIT_MESSAGE" value="added requirements file" />
   </component>
 </project>
