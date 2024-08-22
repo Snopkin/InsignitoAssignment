@@ -36,7 +36,7 @@ class AcousticArray:
             signal_phase = 2 * math.pi * self.frequency * delta_t - initial_phase_shift
             signal = math.cos(signal_phase)
             total_signal += signal
-        return total_signal ** 2
+        return abs(total_signal)
 
     def calculate_radiation_pattern(self):
         azimuths = np.arange(0, 360, self.angle_resolution)
