@@ -18,8 +18,8 @@ class Microphone:
     :return: The phase shift of the microphone [radians].
     :rtype: float
     '''
-    def calculate_phase_shift(self, look_direction_rad, frequency, wave_speed_in_medium=343.0):
-        delta_r = self.x_coordinate * math.cos(look_direction_rad) + self.y_coordinate * math.sin(look_direction_rad)
+    def calculate_phase_shift(self, initial_looking_direction_rad, frequency, wave_speed_in_medium=343.0):
+        delta_r = self.x_coordinate * math.cos(initial_looking_direction_rad) + self.y_coordinate * math.sin(initial_looking_direction_rad)
         delta_t = delta_r / wave_speed_in_medium
         phase_shift = 2 * math.pi * frequency * delta_t
         return phase_shift

@@ -4,18 +4,18 @@ import matplotlib.pyplot as plt
 
 
 class AcousticArray:
-    def __init__(self, microphones, frequency, look_direction, angle_resolution):
+    def __init__(self, microphones, frequency, initial_looking_direction, angle_resolution):
         self.microphones = microphones
         self.frequency = frequency
-        self.look_direction = look_direction
+        self.initial_looking_direction = initial_looking_direction
         self.angle_resolution = angle_resolution
         self.sound_speed = 343  # Speed of sound in m/s
-        self.look_direction_rad = math.radians(look_direction)
+        self.initial_looking_direction_rad = math.radians(initial_looking_direction)
         self.initial_phase_shifts = self._calculate_initial_phase_shifts()
 
     def _calculate_initial_phase_shifts(self):
         phase_shifts = [
-            mic.calculate_phase_shift(self.look_direction_rad, self.sound_speed, self.frequency)
+            mic.calculate_phase_shift(self.initial_looking_direction_rad, self.sound_speed, self.frequency)
             for mic in self.microphones
         ]
         return phase_shifts

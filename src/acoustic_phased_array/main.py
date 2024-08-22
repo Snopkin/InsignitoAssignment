@@ -1,85 +1,81 @@
-# import tkinter as tk
-# from tkinter import messagebox
-# import numpy as np
-#
-# class MainClass:
-#     def __init__(self, root):
-#         self.root = root
-#         self.root.title("Ray Tracing Simulation")
-#
-#         # Create a frame to hold the label and entry for number of rays
-#         self.rays_frame = tk.Frame(root)
-#         self.rays_frame.pack(pady=10)
-#
-#         # Label and entry for the number of rays
-#         self.rays_label = tk.Label(self.rays_frame, text="Number of Rays:")
-#         self.rays_label.pack(side="left", padx=5)
-#         self.rays_entry = tk.Entry(self.rays_frame)
-#         self.rays_entry.pack(side="left", padx=5)
-#
-#         # Create a frame to hold the label and entry for y boundary
-#         self.y_boundary_frame = tk.Frame(root)
-#         self.y_boundary_frame.pack(pady=10)
-#
-#         # Label and entry for the y boundary
-#         self.y_boundary_label = tk.Label(self.y_boundary_frame, text="y boundary:")
-#         self.y_boundary_label.pack(side="left", padx=5)
-#         self.y_boundary_entry = tk.Entry(self.y_boundary_frame)
-#         self.y_boundary_entry.pack(side="left", padx=5)
-#
-#         # Create and pack the button below the input frames
-#         self.button = tk.Button(root, text="Start Simulation", command=self.run)
-#         self.button.pack(pady=20)
-#
-#     def run(self):
-#         try:
-#             # Get the number of rays from the entry widget
-#             number_of_rays = int(self.rays_entry.get())
-#             y_boundary = int(self.y_boundary_entry.get())
-#             if not 1 <= number_of_rays <= 50:
-#                 raise ValueError("Number of rays must be between 1 and 50.")
-#
-#             self.root.destroy()
-#             # Here you would run the simulation
-#             sim = Simulator(number_of_rays=number_of_rays, max_iterations=1000, y_boundary= y_boundary )
-#             sim.simulate()
-#             sim.plot_paths()
-#
-#
-#         except ValueError as e:
-#             # Show an error message if the input is invalid
-#             messagebox.showerror("Input Error", str(e))
-#
-# if __name__ == "__main__":
-#     root = tk.Tk()
-#     main_instance = MainClass(root)
-#     root.mainloop()
+
+from tkinter import messagebox
 
 from microphone import Microphone
 from src.acoustic_phased_array.acoustic_phased_array import AcousticArray
 from src.acoustic_phased_array.simulator import Simulator
-
+import tkinter as tk
 
 class Main:
-    @staticmethod
-    def run():
-        microphone_positions = [(0, 0), (0.1, 0), (0.2, 0)]  # Example positions in meters
-        frequency = 1000  # Example frequency in Hz
-        look_direction = 90  # Example look direction in degrees
-        angle_resolution = 0.5  # Example resolution in degrees
+    def __init__(self, root_element):
+        self.root = root_element
+        self.root.title("Acoustic Array Simulator")
 
-        microphones = [Microphone(x, y) for x, y in microphone_positions]
+        # Microphone positions user input
+        tk.Label(root_element, text="Microphone Positions (x1,y1 x2,y2 ...):").grid(row=0, column=0, padx=10, pady=5, sticky="e")
+        self.mic_positions_entry = tk.Entry(root_element, width=50)
+        self.mic_positions_entry.grid(row=0, column=1, padx=10, pady=5)
 
-        acoustic_array = AcousticArray(microphones, frequency, look_direction, angle_resolution)
+        # Frequency user input
+        tk.Label(root_element, text="Frequency (Hz):").grid(row=1, column=0, padx=10, pady=5, sticky="e")
+        self.frequency_entry = tk.Entry(root_element)
+        self.frequency_entry.grid(row=1, column=1, padx=10, pady=5)
 
-        radiation_pattern = acoustic_array.calculate_radiation_pattern()
+        # Look direction input
+        tk.Label(root_element, text="Look Direction (degrees):").grid(row=2, column=0, padx=10, pady=5, sticky="e")
+        self.initial_looking_direction_entry = tk.Entry(root_element)
+        self.initial_looking_direction_entry.grid(row=2, column=1, padx=10, pady=5)
 
-        # OUTPUT
-        print(radiation_pattern)
+        # Angle resolution input
+        tk.Label(root_element, text="Angle Resolution (degrees):").grid(row=3, column=0, padx=10, pady=5, sticky="e")
+        self.angle_resolution_entry = tk.Entry(root_element)
+        self.angle_resolution_entry.grid(row=3, column=1, padx=10, pady=5)
 
-        simulator = Simulator(acoustic_array)
-        simulator.plot_radiation_pattern(radiation_pattern)
+        # Start Simulation button
+        self.start_button = tk.Button(root_element, text="Start Simulation", command=self.start_simulation)
+        self.start_button.grid(row=4, columnspan=2, pady=20)
 
-# Run the program
+    def start_simulation(self):
+        # Get input values
+        mic_positions_str = self.mic_positions_entry.get()
+        frequency_str = self.frequency_entry.get()
+        initial_looking_direction_str = self.initial_looking_direction_entry.get()
+        angle_resolution_str = self.angle_resolution_entry.get()
+
+        try:
+            mic_positions = [tuple(map(float, pos.split(','))) for pos in mic_positions_str.split()]
+            frequency = float(frequency_str)
+            initial_looking_direction = float(initial_looking_direction_str)
+            angle_resolution = float(angle_resolution_str)
+            if not mic_positions:
+                raise ValueError("Microphone positions cannot be empty.")
+            if frequency <= 0:
+                raise ValueError("Frequency must be a positive number.")
+            if not (0 <= initial_looking_direction < 360):
+                raise ValueError("Look direction must be in the range [0, 360).")
+            if angle_resolution <= 0:
+                raise ValueError("Angle resolution must be a positive number.")
+
+            if angle_resolution < 0.001:
+                proceed = messagebox.askyesno(
+                    "Warning",
+                    "Angle resolution is very small, which may cause the simulation to be slow. Do you want to proceed?"
+                )
+                if not proceed:
+                    return
+
+            microphones = [Microphone(x, y) for x, y in mic_positions]
+            acoustic_array = AcousticArray(microphones, frequency, initial_looking_direction, angle_resolution)
+            radiation_pattern = acoustic_array.calculate_radiation_pattern()
+
+            simulator = Simulator(acoustic_array)
+            simulator.plot_radiation_pattern(radiation_pattern)
+
+
+        except ValueError as e:
+            messagebox.showerror("Input Error", str(e))
+
 if __name__ == "__main__":
-    Main.run()
+    root = tk.Tk()
+    app = Main(root)
+    root.mainloop()
