@@ -2,8 +2,8 @@
 from tkinter import messagebox
 
 from microphone import Microphone
-from src.acoustic_phased_array.acoustic_phased_array import AcousticArray
-from src.acoustic_phased_array.simulator import Simulator
+from src.acoustic_phased_array.main.acoustic_phased_array import AcousticArray
+from src.acoustic_phased_array.main.simulator import Simulator
 import tkinter as tk
 
 class Main:

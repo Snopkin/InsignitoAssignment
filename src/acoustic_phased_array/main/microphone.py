@@ -24,11 +24,9 @@ class Microphone:
         phase_shift = 2 * math.pi * frequency * delta_t
         return phase_shift
 
+    '''
+    returns a tuple of (x_position, y_position)
+    '''
     def get_position(self):
         return self.x_coordinate,self.y_coordinate
 
-
-    def get_phase_shift(self, listening_angle, wave_frequency, medium_speed = 343.0):
-        angle_in_rad = math.radians(listening_angle)
-        delta_r = self.x_coordinate * math.cos(angle_in_rad) + self.y_coordinate * math.sin(angle_in_rad)
-        return (2 * math.pi * wave_frequency * delta_r) / medium_speed

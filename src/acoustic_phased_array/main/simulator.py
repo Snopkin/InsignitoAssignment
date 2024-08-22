@@ -4,6 +4,7 @@ class Simulator:
     def __init__(self, acoustic_array):
         self.acoustic_array = acoustic_array
 
+
     def plot_radiation_pattern(self, radiation_pattern):
         theta = np.radians(list(radiation_pattern.keys()))
         r = list(radiation_pattern.values())
