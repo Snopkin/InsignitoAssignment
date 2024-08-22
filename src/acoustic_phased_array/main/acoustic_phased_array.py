@@ -9,7 +9,7 @@ class AcousticArray:
         self.frequency = frequency
         self.initial_looking_direction = initial_looking_direction
         self.angle_resolution = angle_resolution
-        self.sound_speed = 343
+        self.sound_speed = 343 #todo get from user?
         self.initial_looking_direction_rad = math.radians(initial_looking_direction)
         self.initial_phase_shifts = self._calculate_initial_phase_shifts()
 
