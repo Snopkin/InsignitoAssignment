@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07a0ba76-8dda-497e-afab-6658a3058ce7" name="Changes" comment="added tests and refactored&#10;removed unneccessary function">
-      <change beforePath="$PROJECT_DIR$/src/acoustic_phased_array/main/acoustic_phased_array.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/acoustic_phased_array/main/acoustic_phased_array.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/acoustic_phased_array/main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/acoustic_phased_array/main/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/acoustic_phased_array/test/test_simulator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/acoustic_phased_array/test/test_simulator.py" afterDir="false" />
-    </list>
+    <list default="true" id="07a0ba76-8dda-497e-afab-6658a3058ce7" name="Changes" comment="README.md update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -212,7 +208,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724324946050</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="prettify and doc">
+      <option name="closed" value="true" />
+      <created>1724325272234</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1724325272234</updated>
+    </task>
+    <task id="LOCAL-00007" summary="README.md update">
+      <option name="closed" value="true" />
+      <created>1724325439714</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1724325439714</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -232,6 +244,8 @@
     <MESSAGE value="added GUI and test module (TBD)" />
     <MESSAGE value="added GUI and test module (TBD), removed commented out code" />
     <MESSAGE value="added tests and refactored&#10;removed unneccessary function" />
-    <option name="LAST_COMMIT_MESSAGE" value="added tests and refactored&#10;removed unneccessary function" />
+    <MESSAGE value="prettify and doc" />
+    <MESSAGE value="README.md update" />
+    <option name="LAST_COMMIT_MESSAGE" value="README.md update" />
   </component>
 </project>
